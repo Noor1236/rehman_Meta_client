@@ -1,0 +1,533 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+header {
+  background-color: #1a1a2e;
+  color: white;
+  padding: 1rem;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo-img {
+  width: 150px;
+  height: 35px;
+  margin-right: 10px;
+}
+
+.logo-text {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px; /* Add some gap between navigation links */
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: white;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+  color: #00aaff;
+}
+
+.search-theme {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* Adds gap between the search box and toggle button */
+}
+
+.search-container {
+  position: relative;
+  width: 200px;
+}
+
+.search {
+  padding: 0.5rem 40px 0.5rem 10px;
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  background-color: #333;
+  color: white;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Search Icon */
+.search-container::before {
+  content: url('../src/pictures/search.svg'); /* Add your search icon image here */
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+}
+
+/* Toggle Switch */
+.toggle-switch {
+  position: relative;
+  width: 50px;
+  height: 26px;
+  margin-left: 10px;
+}
+
+.checkbox {
+  display: none;
+}
+
+.switch {
+  position: absolute;
+  cursor: pointer;
+  background-color: #007bff; /* Blue background */
+  border-radius: 34px;
+  width: 100%;
+  height: 100%;
+  transition: background-color 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2px;
+}
+
+.switch-icon {
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  background-size: cover;
+  border-radius: 50%;
+  top: 2px;
+  transition: transform 0.3s ease;
+  background-color: white; /* Default icon background */
+  left: 2px;
+}
+
+/* Sun and Moon Icons */
+.sun {
+  background-image: url('../src/pictures/button/light_mode_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg'); /* Add sun image path */
+}
+
+.moon {
+  background-image: url('../src/pictures/button/dark_mode_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg'); /* Add moon image path */
+}
+
+/* When the checkbox is checked */
+.checkbox:checked + .switch {
+  background-color: #333; /* Darker background for dark mode */
+}
+
+.checkbox:checked + .switch .switch-icon {
+  transform: translateX(24px); /* Move the icon to the right */
+}
+
+/* Show sun or moon */
+body.light-theme .switch-icon {
+  background-image: url('../src/pictures/button/dark_mode_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg'); /* Sun image in light mode */
+}
+
+body.dark-theme .switch-icon {
+  background-image: url('../src/pictures/button/light_mode_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg'); /* Moon image in dark mode */
+}
+
+/* Light Theme */
+body.light-theme {
+  background-color: white;
+  color: black;
+}
+
+body.light-theme header {
+  background-color: #f1f1f1;
+  color: black;
+}
+
+body.light-theme .nav-links li a {
+  color: black;
+}
+
+body.light-theme .search {
+  background-color: #e2e2e2;
+}
+/
+body.light-theme .toggle-switch .switch {
+  background-color: #007bff; /* Blue background for light mode */
+}
+
+/* Dark Theme */
+body.dark-theme {
+  background-color: #1a1a2e;
+  color: white;
+}
+
+body.dark-theme .search {
+  background-color: #333;
+  color: white;
+}
+/* Featured Post */
+.featured-post {
+  position: relative;
+  max-width: 1200px;
+  margin: 40px auto;
+}
+
+.featured-image {
+  position: relative;
+  text-align: left;
+}
+
+.featured-image img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.featured-content {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 50%;
+}
+
+.featured-content h2 {
+  font-size: 28px;
+  margin: 10px 0;
+}
+
+.featured-content p {
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.category-tag {
+  background-color: rgba(75, 107, 251, 0.05);
+  color: #4B6BFB;
+  padding: 8px 16px;
+  font-family: 'Arial', sans-serif;
+  font-size: 16px;
+  display: inline-block;
+  cursor: pointer;
+  text-align: center;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+/* Ads Section */
+.advertisement {
+  text-align: center;
+  margin: 20px auto;
+  background-color:#242535;
+  color: #696A75; 
+  padding: 20px;
+  width: 728px; 
+  height: 90px; 
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); 
+  font-size: 14px; 
+}
+
+
+/* Latest Posts */
+.latest-posts {
+  max-width: 1200px;
+  margin: 40px auto;
+  text-align: left;
+}
+
+.latest-posts h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.posts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.post-card {
+  background-color: #2d2f54;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.post-card:hover {
+  transform: scale(1.05);
+}
+
+.post-card img {
+  width: 100%;
+  height: auto;
+  border-bottom: 1px solid #121530;
+}
+
+.post-info {
+  padding: 20px;
+}
+
+.post-info h3 {
+  font-size: 18px;
+  margin: 10px 0;
+  color: #fff;
+}
+
+.post-info .category-tag {
+  /* background-color: #5764e2; */
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.btn01 {
+  /* width: Hug (143px);
+  height: Hug (48px); */
+  padding: 12px;
+  border-radius: 6px;
+  gap: 12px;
+  border: 1px solid #696A754D;
+  text-align: center;
+  color: #696A75;
+  margin: 40px 580px;
+  background-color: #181A2A;
+  /* //styleName: Body/b4/Medium; */
+  font-family: Work Sans;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0em;
+  text-align: center;
+  width: 175px;
+  height: 50px;
+
+
+}
+.btn01:hover {
+  background-color: #252A3B; 
+}
+
+
+            /*footer*/
+            /* Footer Main Styles */
+.footer {
+  background-color: #141624; /* Dark background */
+  color: #B0B0B0; /* Light grey text */
+  padding: 40px 0;
+  font-family: 'Arial', sans-serif;
+}
+.fsection {
+  margin-left: 100px;
+  text-align: left;
+}
+.footer h4 {
+  color: white; /* White for headings */
+  margin-bottom: 20px;
+}
+
+.footer p, .footer li {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* Layout: Flexbox for footer columns */
+.footer-columns {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.footer-column {
+  width: 22%;
+}
+
+.footer-column.about {
+  max-width: 300px; /* Limiting the width of about section */
+}
+
+.footer ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer ul li {
+  margin-bottom: 10px;
+}
+
+.footer ul li a {
+  color: #B0B0B0;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer ul li a:hover {
+  color: #6D8DF5; /* Hover color for links */
+}
+
+              /*news letter*/
+/* Styling for the newsletter box */
+.newsletter-box {
+  background-color: #1D1D2A; /* Dark background */
+  padding: 20px;
+  border-radius: 10px; /* Rounded corners */
+  text-align: center;
+  max-width: 300px;
+  margin: 0 auto; /* Center align the box */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+}
+
+.newsletter-box h4 {
+  color: white;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.newsletter-box p {
+  color: #B0B0B0; /* Light grey for the description */
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+/* Form input field container */
+.input-container {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.input-container input[type="email"] {
+  width: 100%;
+  padding: 10px 40px 10px 12px;
+  background-color: #2B2B39;
+  border: 1px solid #4B6BFB;
+  border-radius: 8px;
+  color: white;
+  font-size: 14px;
+}
+
+.input-container .input-icon {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #B0B0B0;
+}
+
+/* Button styling */
+.newsletter-box button {
+  width: 100%;
+  padding: 12px 0;
+  background-color: #4B6BFB;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.newsletter-box button:hover {
+  background-color: #6D8DF5;
+}
+
+
+
+
+
+/* Footer Bottom Section */
+.footer-bottom {
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid #333;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
+.footer-bottom p {
+  font-size: 12px;
+  color: #666;
+}
+
+.footer-bottom ul {
+  display: flex;
+  list-style: none;
+  display: fle;
+}
+
+.footer-bottom ul li {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.footer-bottom ul li a {
+  color: #666;
+  font-size: 12px;
+  text-decoration: none;
+}
+
+.footer-bottom ul li a:hover {
+  color: #6D8DF5; /* Hover color for bottom links */
+}
+
+
+.sp-category-tag {
+  background-color: #4B6BFB;
+  color: #ffffff;
+  padding: 8px 16px;
+  font-family: 'Arial', sans-serif;
+  font-size: 16px;
+  display: inline-block;
+  cursor: pointer;
+  text-align: center;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  padding: 5px;
+  border-radius: 5px;
+}
+.latest-posts {
+  /* Basic styling for the section */
+  margin-bottom: 40px;
+}
+
+.posts-container {
+  display: flex;
+  flex-wrap: wrap; /* Ensures the button and posts stay on the same line */
+  justify-content: space-between; /* Space between the posts grid and the button */
+  align-items: center; /* Align button vertically in the center */
+  gap: 20px; /* Space between the posts and button */
+}
+
+.posts-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Adjust as needed for your layout */
+  gap: 20px;
+  flex-grow: 1; /* Allow the grid to take available space */
+}
+
+.extra-posts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
